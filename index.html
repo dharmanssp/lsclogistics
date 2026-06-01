@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LSC Logistics Hub • Gateway Portal</title>
+  
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230A192F'/%3E%3Cpath d='M50 25 L75 35 V55 C75 70 50 80 50 80 C50 80 25 70 25 55 V35 Z' fill='none' stroke='%2338bdf8' stroke-width='6' stroke-linejoin='round'/%3E%3Cpath d='M40 45 H55 L62 52 V60 H38 V48 Z' fill='%2338bdf8'/%3E%3Ccircle cx='44' cy='64' r='4' fill='%230A192F'/%3E%3Ccircle cx='56' cy='64' r='4' fill='%230A192F'/%3E%3C/svg%3E">
+
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: #0A192F;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      overflow: hidden;
+    }
+    .loader-container {
+      text-align: center;
+      max-width: 400px;
+      padding: 20px;
+    }
+    .brand-icon {
+      width: 64px;
+      height: 64px;
+      background-color: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      color: #38bdf8;
+      font-size: 24px;
+      animation: pulse 2s infinite ease-in-out;
+    }
+    h1 {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+      color: #ffffff;
+    }
+    p {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 32px;
+    }
+    .track {
+      width: 180px;
+      height: 3px;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+    .progress {
+      width: 40%;
+      height: 100%;
+      background-color: #38bdf8;
+      border-radius: 10px;
+      position: absolute;
+      left: -40%;
+      animation: load 1.4s infinite ease-in-out;
+      box-shadow: 0 0 8px #38bdf8;
+    }
+    @keyframes load {
+      0% { left: -40%; width: 30%; }
+      50% { width: 40%; }
+      100% { left: 110%; width: 20%; }
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.2); }
+      70% { transform: scale(1.03); box-shadow: 0 0 0 10px rgba(56, 189, 248, 0); }
+      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(56, 189, 248, 0); }
+    }
+  </style>
+
+  <script>
+    // System Connection String Variable Pointing to your Updated Production App Instance
+    const LIVE_PRODUCTION_APPSCRIPT_URL = "https://script.google.com/macros/s/AKfycbi6BepQ8eOMmNm0cP9E6f-CmXp9itxEbn_WRF7O5TWMQaN7xqsvwPsgnQ5mz7sdccV/exec";
+
+    /**
+     * Executes an un-trackable client location transfer block to launch the application matrix seamlessly
+     */
+    function executeSecureUplinkRedirect() {
+      setTimeout(function() {
+        window.location.replace(LIVE_PRODUCTION_APPSCRIPT_URL);
+      }, 1500);
+    }
+    
+    window.onload = executeSecureUplinkRedirect;
+  </script>
+</head>
+<body>
+
+  <div class="loader-container">
+    <div class="brand-icon">
+      <i class="fa-solid fa-satellite-dish"></i>
+    </div>
+    <h1>LSC Logistics Hub</h1>
+    <p>Establishing Secure Uplink...</p>
+    
+    <div class="track">
+      <div class="progress"></div>
+    </div>
+  </div>
+
+</body>
+</html>
